@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC3AA65B1F270B8D00C41C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA65A1F270B8D00C41C3E /* AppDelegate.swift */; };
+		AC3AA65D1F270B8D00C41C3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA65C1F270B8D00C41C3E /* ViewController.swift */; };
+		AC3AA6601F270B8D00C41C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3AA65E1F270B8D00C41C3E /* Main.storyboard */; };
+		AC3AA6621F270B8D00C41C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC3AA6611F270B8D00C41C3E /* Assets.xcassets */; };
+		AC3AA6651F270B8D00C41C3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC3AA6631F270B8D00C41C3E /* LaunchScreen.storyboard */; };
+		AC3AA6701F270B8D00C41C3E /* WiggleMeSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA66F1F270B8D00C41C3E /* WiggleMeSwiftTests.swift */; };
+		AC3AA67B1F270B8D00C41C3E /* WiggleMeSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA67A1F270B8D00C41C3E /* WiggleMeSwiftUITests.swift */; };
+		AC3AA6911F270D1800C41C3E /* WMUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6901F270D1800C41C3E /* WMUtilities.swift */; };
+		AC3AA6921F270D1800C41C3E /* WMUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6901F270D1800C41C3E /* WMUtilities.swift */; };
+		AC3AA6931F270D1800C41C3E /* WMUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6901F270D1800C41C3E /* WMUtilities.swift */; };
+		AC3AA6951F270E5600C41C3E /* WMTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6941F270E5600C41C3E /* WMTypes.swift */; };
+		AC3AA6961F270E5600C41C3E /* WMTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6941F270E5600C41C3E /* WMTypes.swift */; };
+		AC3AA6971F270E5600C41C3E /* WMTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6941F270E5600C41C3E /* WMTypes.swift */; };
+		AC3AA69A1F2723BE00C41C3E /* WMCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6991F2723BE00C41C3E /* WMCamera.swift */; };
+		AC3AA69B1F2723BE00C41C3E /* WMCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6991F2723BE00C41C3E /* WMCamera.swift */; };
+		AC3AA69C1F2723BE00C41C3E /* WMCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6991F2723BE00C41C3E /* WMCamera.swift */; };
+		AC3AA69E1F2723FA00C41C3E /* WMMatrixUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA69D1F2723FA00C41C3E /* WMMatrixUtilities.swift */; };
+		AC3AA69F1F2723FA00C41C3E /* WMMatrixUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA69D1F2723FA00C41C3E /* WMMatrixUtilities.swift */; };
+		AC3AA6A01F2723FA00C41C3E /* WMMatrixUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA69D1F2723FA00C41C3E /* WMMatrixUtilities.swift */; };
+		AC3AA6A21F27240700C41C3E /* WMMeshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6A11F27240700C41C3E /* WMMeshModel.swift */; };
+		AC3AA6A31F27240700C41C3E /* WMMeshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6A11F27240700C41C3E /* WMMeshModel.swift */; };
+		AC3AA6A41F27240700C41C3E /* WMMeshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6A11F27240700C41C3E /* WMMeshModel.swift */; };
+		AC3AA6A71F27749200C41C3E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6A61F27749200C41C3E /* Shaders.metal */; };
+		AC3AA6A81F27749200C41C3E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6A61F27749200C41C3E /* Shaders.metal */; };
+		AC3AA6A91F27749200C41C3E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6A61F27749200C41C3E /* Shaders.metal */; };
+		AC3AA6AB1F2774A400C41C3E /* WMRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */; };
+		AC3AA6AC1F2774A400C41C3E /* WMRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */; };
+		AC3AA6AD1F2774A400C41C3E /* WMRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */; };
+		AC3AA6AF1F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
+		AC3AA6B01F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
+		AC3AA6B11F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC3AA66C1F270B8D00C41C3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3AA64F1F270B8D00C41C3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC3AA6561F270B8D00C41C3E;
+			remoteInfo = WiggleMeSwift;
+		};
+		AC3AA6771F270B8D00C41C3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3AA64F1F270B8D00C41C3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC3AA6561F270B8D00C41C3E;
+			remoteInfo = WiggleMeSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC3AA6571F270B8D00C41C3E /* WiggleMeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiggleMeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3AA65A1F270B8D00C41C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC3AA65C1F270B8D00C41C3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC3AA65F1F270B8D00C41C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC3AA6611F270B8D00C41C3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC3AA6641F270B8D00C41C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC3AA6661F270B8D00C41C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3AA66B1F270B8D00C41C3E /* WiggleMeSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiggleMeSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3AA66F1F270B8D00C41C3E /* WiggleMeSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiggleMeSwiftTests.swift; sourceTree = "<group>"; };
+		AC3AA6711F270B8D00C41C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3AA6761F270B8D00C41C3E /* WiggleMeSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiggleMeSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3AA67A1F270B8D00C41C3E /* WiggleMeSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiggleMeSwiftUITests.swift; sourceTree = "<group>"; };
+		AC3AA67C1F270B8D00C41C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3AA68A1F270C9C00C41C3E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC3AA68B1F270CAE00C41C3E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		AC3AA68C1F270CC600C41C3E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		AC3AA68D1F270CE800C41C3E /* ModelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ModelIO.framework; path = System/Library/Frameworks/ModelIO.framework; sourceTree = SDKROOT; };
+		AC3AA68E1F270CF100C41C3E /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		AC3AA68F1F270CF100C41C3E /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		AC3AA6901F270D1800C41C3E /* WMUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMUtilities.swift; sourceTree = "<group>"; };
+		AC3AA6941F270E5600C41C3E /* WMTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMTypes.swift; sourceTree = "<group>"; };
+		AC3AA6991F2723BE00C41C3E /* WMCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMCamera.swift; sourceTree = "<group>"; };
+		AC3AA69D1F2723FA00C41C3E /* WMMatrixUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMMatrixUtilities.swift; sourceTree = "<group>"; };
+		AC3AA6A11F27240700C41C3E /* WMMeshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMMeshModel.swift; sourceTree = "<group>"; };
+		AC3AA6A61F27749200C41C3E /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Shaders.metal; path = "../../../../Downloads/Using-Depth-Data/WiggleMe/Renderer/Shaders.metal"; sourceTree = "<group>"; };
+		AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WMRenderer.swift; sourceTree = "<group>"; };
+		AC3AA6AE1F277D6800C41C3E /* ReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC3AA6541F270B8D00C41C3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3AA6681F270B8D00C41C3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3AA6731F270B8D00C41C3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC3AA64E1F270B8D00C41C3E = {
+			isa = PBXGroup;
+			children = (
+				AC3AA6AE1F277D6800C41C3E /* ReadMe.md */,
+				AC3AA6591F270B8D00C41C3E /* WiggleMeSwift */,
+				AC3AA66E1F270B8D00C41C3E /* WiggleMeSwiftTests */,
+				AC3AA6791F270B8D00C41C3E /* WiggleMeSwiftUITests */,
+				AC3AA6581F270B8D00C41C3E /* Products */,
+				AC3AA6891F270C9C00C41C3E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AC3AA6581F270B8D00C41C3E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA6571F270B8D00C41C3E /* WiggleMeSwift.app */,
+				AC3AA66B1F270B8D00C41C3E /* WiggleMeSwiftTests.xctest */,
+				AC3AA6761F270B8D00C41C3E /* WiggleMeSwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC3AA6591F270B8D00C41C3E /* WiggleMeSwift */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA6A51F27748000C41C3E /* Renderer */,
+				AC3AA6981F27238E00C41C3E /* Engine */,
+				AC3AA6881F270C5800C41C3E /* Common */,
+				AC3AA65A1F270B8D00C41C3E /* AppDelegate.swift */,
+				AC3AA65C1F270B8D00C41C3E /* ViewController.swift */,
+				AC3AA65E1F270B8D00C41C3E /* Main.storyboard */,
+				AC3AA6611F270B8D00C41C3E /* Assets.xcassets */,
+				AC3AA6631F270B8D00C41C3E /* LaunchScreen.storyboard */,
+				AC3AA6661F270B8D00C41C3E /* Info.plist */,
+			);
+			path = WiggleMeSwift;
+			sourceTree = "<group>";
+		};
+		AC3AA66E1F270B8D00C41C3E /* WiggleMeSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA66F1F270B8D00C41C3E /* WiggleMeSwiftTests.swift */,
+				AC3AA6711F270B8D00C41C3E /* Info.plist */,
+			);
+			path = WiggleMeSwiftTests;
+			sourceTree = "<group>";
+		};
+		AC3AA6791F270B8D00C41C3E /* WiggleMeSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA67A1F270B8D00C41C3E /* WiggleMeSwiftUITests.swift */,
+				AC3AA67C1F270B8D00C41C3E /* Info.plist */,
+			);
+			path = WiggleMeSwiftUITests;
+			sourceTree = "<group>";
+		};
+		AC3AA6881F270C5800C41C3E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA6941F270E5600C41C3E /* WMTypes.swift */,
+				AC3AA6901F270D1800C41C3E /* WMUtilities.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AC3AA6891F270C9C00C41C3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA68F1F270CF100C41C3E /* Metal.framework */,
+				AC3AA68E1F270CF100C41C3E /* MetalKit.framework */,
+				AC3AA68D1F270CE800C41C3E /* ModelIO.framework */,
+				AC3AA68C1F270CC600C41C3E /* ImageIO.framework */,
+				AC3AA68B1F270CAE00C41C3E /* CoreVideo.framework */,
+				AC3AA68A1F270C9C00C41C3E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC3AA6981F27238E00C41C3E /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA6991F2723BE00C41C3E /* WMCamera.swift */,
+				AC3AA69D1F2723FA00C41C3E /* WMMatrixUtilities.swift */,
+				AC3AA6A11F27240700C41C3E /* WMMeshModel.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		AC3AA6A51F27748000C41C3E /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				AC3AA6A61F27749200C41C3E /* Shaders.metal */,
+				AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC3AA6561F270B8D00C41C3E /* WiggleMeSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC3AA67F1F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwift" */;
+			buildPhases = (
+				AC3AA6531F270B8D00C41C3E /* Sources */,
+				AC3AA6541F270B8D00C41C3E /* Frameworks */,
+				AC3AA6551F270B8D00C41C3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WiggleMeSwift;
+			productName = WiggleMeSwift;
+			productReference = AC3AA6571F270B8D00C41C3E /* WiggleMeSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC3AA66A1F270B8D00C41C3E /* WiggleMeSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC3AA6821F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwiftTests" */;
+			buildPhases = (
+				AC3AA6671F270B8D00C41C3E /* Sources */,
+				AC3AA6681F270B8D00C41C3E /* Frameworks */,
+				AC3AA6691F270B8D00C41C3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC3AA66D1F270B8D00C41C3E /* PBXTargetDependency */,
+			);
+			name = WiggleMeSwiftTests;
+			productName = WiggleMeSwiftTests;
+			productReference = AC3AA66B1F270B8D00C41C3E /* WiggleMeSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC3AA6751F270B8D00C41C3E /* WiggleMeSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC3AA6851F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwiftUITests" */;
+			buildPhases = (
+				AC3AA6721F270B8D00C41C3E /* Sources */,
+				AC3AA6731F270B8D00C41C3E /* Frameworks */,
+				AC3AA6741F270B8D00C41C3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC3AA6781F270B8D00C41C3E /* PBXTargetDependency */,
+			);
+			name = WiggleMeSwiftUITests;
+			productName = WiggleMeSwiftUITests;
+			productReference = AC3AA6761F270B8D00C41C3E /* WiggleMeSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC3AA64F1F270B8D00C41C3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = windroamer;
+				TargetAttributes = {
+					AC3AA6561F270B8D00C41C3E = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+					AC3AA66A1F270B8D00C41C3E = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						TestTargetID = AC3AA6561F270B8D00C41C3E;
+					};
+					AC3AA6751F270B8D00C41C3E = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						TestTargetID = AC3AA6561F270B8D00C41C3E;
+					};
+				};
+			};
+			buildConfigurationList = AC3AA6521F270B8D00C41C3E /* Build configuration list for PBXProject "WiggleMeSwift" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC3AA64E1F270B8D00C41C3E;
+			productRefGroup = AC3AA6581F270B8D00C41C3E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC3AA6561F270B8D00C41C3E /* WiggleMeSwift */,
+				AC3AA66A1F270B8D00C41C3E /* WiggleMeSwiftTests */,
+				AC3AA6751F270B8D00C41C3E /* WiggleMeSwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC3AA6551F270B8D00C41C3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3AA6651F270B8D00C41C3E /* LaunchScreen.storyboard in Resources */,
+				AC3AA6621F270B8D00C41C3E /* Assets.xcassets in Resources */,
+				AC3AA6601F270B8D00C41C3E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3AA6691F270B8D00C41C3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3AA6741F270B8D00C41C3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC3AA6531F270B8D00C41C3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3AA6A71F27749200C41C3E /* Shaders.metal in Sources */,
+				AC3AA65D1F270B8D00C41C3E /* ViewController.swift in Sources */,
+				AC3AA6951F270E5600C41C3E /* WMTypes.swift in Sources */,
+				AC3AA6AB1F2774A400C41C3E /* WMRenderer.swift in Sources */,
+				AC3AA6AF1F277D6800C41C3E /* ReadMe.md in Sources */,
+				AC3AA69A1F2723BE00C41C3E /* WMCamera.swift in Sources */,
+				AC3AA6911F270D1800C41C3E /* WMUtilities.swift in Sources */,
+				AC3AA65B1F270B8D00C41C3E /* AppDelegate.swift in Sources */,
+				AC3AA69E1F2723FA00C41C3E /* WMMatrixUtilities.swift in Sources */,
+				AC3AA6A21F27240700C41C3E /* WMMeshModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3AA6671F270B8D00C41C3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3AA6921F270D1800C41C3E /* WMUtilities.swift in Sources */,
+				AC3AA6A81F27749200C41C3E /* Shaders.metal in Sources */,
+				AC3AA6961F270E5600C41C3E /* WMTypes.swift in Sources */,
+				AC3AA69F1F2723FA00C41C3E /* WMMatrixUtilities.swift in Sources */,
+				AC3AA69B1F2723BE00C41C3E /* WMCamera.swift in Sources */,
+				AC3AA6A31F27240700C41C3E /* WMMeshModel.swift in Sources */,
+				AC3AA6AC1F2774A400C41C3E /* WMRenderer.swift in Sources */,
+				AC3AA6701F270B8D00C41C3E /* WiggleMeSwiftTests.swift in Sources */,
+				AC3AA6B01F277D6800C41C3E /* ReadMe.md in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC3AA6721F270B8D00C41C3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC3AA6931F270D1800C41C3E /* WMUtilities.swift in Sources */,
+				AC3AA6A91F27749200C41C3E /* Shaders.metal in Sources */,
+				AC3AA6971F270E5600C41C3E /* WMTypes.swift in Sources */,
+				AC3AA6A01F2723FA00C41C3E /* WMMatrixUtilities.swift in Sources */,
+				AC3AA69C1F2723BE00C41C3E /* WMCamera.swift in Sources */,
+				AC3AA6A41F27240700C41C3E /* WMMeshModel.swift in Sources */,
+				AC3AA6AD1F2774A400C41C3E /* WMRenderer.swift in Sources */,
+				AC3AA67B1F270B8D00C41C3E /* WiggleMeSwiftUITests.swift in Sources */,
+				AC3AA6B11F277D6800C41C3E /* ReadMe.md in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC3AA66D1F270B8D00C41C3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC3AA6561F270B8D00C41C3E /* WiggleMeSwift */;
+			targetProxy = AC3AA66C1F270B8D00C41C3E /* PBXContainerItemProxy */;
+		};
+		AC3AA6781F270B8D00C41C3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC3AA6561F270B8D00C41C3E /* WiggleMeSwift */;
+			targetProxy = AC3AA6771F270B8D00C41C3E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC3AA65E1F270B8D00C41C3E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC3AA65F1F270B8D00C41C3E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC3AA6631F270B8D00C41C3E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC3AA6641F270B8D00C41C3E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC3AA67D1F270B8D00C41C3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC3AA67E1F270B8D00C41C3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC3AA6801F270B8D00C41C3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = B75RUJT6KD;
+				INFOPLIST_FILE = WiggleMeSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC3AA6811F270B8D00C41C3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = B75RUJT6KD;
+				INFOPLIST_FILE = WiggleMeSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwift-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC3AA6831F270B8D00C41C3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = B75RUJT6KD;
+				INFOPLIST_FILE = WiggleMeSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwiftTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WiggleMeSwift.app/WiggleMeSwift";
+			};
+			name = Debug;
+		};
+		AC3AA6841F270B8D00C41C3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = B75RUJT6KD;
+				INFOPLIST_FILE = WiggleMeSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwiftTests-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WiggleMeSwift.app/WiggleMeSwift";
+			};
+			name = Release;
+		};
+		AC3AA6861F270B8D00C41C3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = B75RUJT6KD;
+				INFOPLIST_FILE = WiggleMeSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwiftUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WiggleMeSwift;
+			};
+			name = Debug;
+		};
+		AC3AA6871F270B8D00C41C3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = B75RUJT6KD;
+				INFOPLIST_FILE = WiggleMeSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwiftUITests-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WiggleMeSwift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC3AA6521F270B8D00C41C3E /* Build configuration list for PBXProject "WiggleMeSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3AA67D1F270B8D00C41C3E /* Debug */,
+				AC3AA67E1F270B8D00C41C3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC3AA67F1F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3AA6801F270B8D00C41C3E /* Debug */,
+				AC3AA6811F270B8D00C41C3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC3AA6821F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3AA6831F270B8D00C41C3E /* Debug */,
+				AC3AA6841F270B8D00C41C3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC3AA6851F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC3AA6861F270B8D00C41C3E /* Debug */,
+				AC3AA6871F270B8D00C41C3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC3AA64F1F270B8D00C41C3E /* Project object */;
+}
