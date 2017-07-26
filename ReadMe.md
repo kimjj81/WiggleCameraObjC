@@ -1,3 +1,5 @@
+아직 미완성.
+
 Convert Objective-C example to Swift
 https://developer.apple.com/videos/play/wwdc2017/507/
 
