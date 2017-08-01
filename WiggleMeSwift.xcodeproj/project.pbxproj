@@ -112,6 +112,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC2CE3511F29CEC00051D600 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		AC3AA64E1F270B8D00C41C3E = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +144,7 @@
 		AC3AA6591F270B8D00C41C3E /* WiggleMeSwift */ = {
 			isa = PBXGroup;
 			children = (
+				AC2CE3511F29CEC00051D600 /* Library */,
 				AC3AA6A51F27748000C41C3E /* Renderer */,
 				AC3AA6981F27238E00C41C3E /* Engine */,
 				AC3AA6881F270C5800C41C3E /* Common */,
@@ -540,7 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,7 +565,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.migas.WiggleMeSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WiggleMeSwift/Common/WiggleMeSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -654,6 +662,7 @@
 				AC3AA6811F270B8D00C41C3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC3AA6821F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -662,6 +671,7 @@
 				AC3AA6841F270B8D00C41C3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC3AA6851F270B8D00C41C3E /* Build configuration list for PBXNativeTarget "WiggleMeSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -670,6 +680,7 @@
 				AC3AA6871F270B8D00C41C3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -57,7 +57,12 @@ extension WMMeshModel {
         indexBuffer?.label = "Indices (MeshModel)"
         
     }
-    
+
+    fileprivate func lerp(_ op1:Float,_ op2:Float, _ t:Float) -> Float {
+        //    lerp(a, b, t) ((a) * ( 1 - (t) ) + (b) * (t))
+        return (op1 * (1-t)) + op2*t
+    }
+    @discardableResult
     fileprivate func createMeshCoordinatesWithDepthMap(_ depthMapPixelBuffer:CVPixelBuffer, intrinsicMatrix:matrix_float3x3, intrinsicMatrixReferenceDimensions:CGSize)
     {
         let matOrig:matrix_float4x4 = matrix_from_scale(1,-1,1)
@@ -69,18 +74,18 @@ extension WMMeshModel {
         let rowBytesSize:size_t = CVPixelBufferGetBytesPerRow(depthMapPixelBuffer)
         
         
-//        let pvertext = UnsafeMutablePointer<WMTexture vertexBuffer?.contents()
+        let pvertex = vertexBuffer?.contents().bindMemory(to: WMTextureVertex.self, capacity: 1)
         
         let cx:Float = intrinsicMatrix.columns.0.z / Float( intrinsicMatrixReferenceDimensions.width ) * Float(numColumns);
         let cy:Float = intrinsicMatrix.columns.1.z / Float (intrinsicMatrixReferenceDimensions.height ) * Float(numRows );
         let focalLength:Float = intrinsicMatrix.columns.0.x / Float( intrinsicMatrixReferenceDimensions.width ) * Float(numColumns);
         
-        let xMin = FLT_MAX;
-        let xMax = FLT_MIN;
-        let yMin = FLT_MAX;
-        let yMax = FLT_MIN;
-        let zMin = FLT_MAX;
-        let zMax = FLT_MIN;
+        var xMin = Float.greatestFiniteMagnitude;
+        var xMax = Float.leastNormalMagnitude;
+        var yMin = Float.greatestFiniteMagnitude;
+        var yMax = Float.leastNormalMagnitude;
+        var zMin = Float.greatestFiniteMagnitude;
+        var zMax = Float.leastNormalMagnitude;
         
         for y in 1...numRows {
             for x in 1...numColumns {
@@ -93,43 +98,88 @@ extension WMMeshModel {
                 let xsip = min(xsi + 1, depthMapWidth - 1);
                 let ysip = min(ysi + 1, depthMapHeight - 1);
                 
-                let c00 = *(float*)(&pin[ysi  * rowBytesSize + xsi  * sizeof(float)]);
-                let c10 = *(float*)(&pin[ysi  * rowBytesSize + xsip * sizeof(float)]);
-                let c01 = *(float*)(&pin[ysip * rowBytesSize + xsi  * sizeof(float)]);
-                let c11 = *(float*)(&pin[ysip * rowBytesSize + xsip * sizeof(float)]);
+                let c00:Float = pin!.advanced(by: ((ysi  * rowBytesSize + xsi  * MemoryLayout<Float>.size))).load(as: Float.self)
+                let c10:Float = pin!.advanced(by: ((ysi  * rowBytesSize + xsip  * MemoryLayout<Float>.size))).load(as: Float.self)
+                let c01:Float = pin!.advanced(by: ((ysip * rowBytesSize + xsi  * MemoryLayout<Float>.size))).load(as: Float.self)
+                let c11:Float = pin!.advanced(by: ((ysip * rowBytesSize + xsip  * MemoryLayout<Float>.size))).load(as: Float.self)
                 
                 let dxs = (xs - xs);
                 let dys = (ys - ys);
-                let dout = lerp(lerp(c00, c10, dxs), lerp(c01, c11, dxs), dys);
+                let dout = self.lerp(self.lerp(c00, c10, dxs),self.lerp(c01, c11, dxs), dys)
                 
                 // Creates the vertex from the top down, so that our triangles are
                 // counter-clockwise.
-                float zz = 1.0f / dout;
-                float xx = (x - cx) * zz / focalLength;
-                float yy = (y - cy) * zz / focalLength;
+                var zz = 1.0 / dout;
+                var xx = (Float(x) - cx) * zz / focalLength;
+                var yy = (Float(y) - cy) * zz / focalLength;
                 
                 // We work in centimeters
-                xx = xx * 100.0f;
-                yy = yy * 100.0f;
-                zz = zz * 100.0f;
+                xx = xx * 100.0;
+                yy = yy * 100.0;
+                zz = zz * 100.0;
                 
-                xMin = MIN(xMin, xx);
-                xMax = MAX(xMax, xx);
-                yMin = MIN(yMin, yy);
-                yMax = MAX(yMax, yy);
-                zMin = MIN(zMin, zz);
-                zMax = MAX(zMax, zz);
+                xMin = simd_min(xMin, xx);
+                xMax = simd_max(xMax, xx);
+                yMin = simd_min(yMin, yy);
+                yMax = simd_max(yMax, yy);
+                zMin = simd_min(zMin, zz);
+                zMax = simd_max(zMax, zz);
                 
-                const vector_float4 pver = matrix_multiply(matrix_multiply(matOrig, _modelMatrix), (vector_float4){xx, yy, zz, 1.0f});
-                pvertex__->vx = pver.x / pver.w;
-                pvertex__->vy = pver.y / pver.w;
-                pvertex__->vz = pver.z / pver.w;
+                let pver:vector_float4 = matrix_multiply(matrix_multiply(matOrig, modelMatrix!), vector_float4.init(xx, yy, zz, 1.0));
                 
-                const vector_float4 ptex = matrix_multiply(_matTextureRot, (vector_float4){xs - 0.5f, ys - 0.5f, 0.0f, 1.0f});
-                pvertex__->tx = (ptex.x / ptex.w) + 0.5f;
-                pvertex__->ty = (ptex.y / ptex.w) + 0.5f;
+                pvertex?.pointee.vx = pver.x / pver.w;
+                pvertex?.pointee.vy = pver.y / pver.w;
+                pvertex?.pointee.vz = pver.z / pver.w;
                 
-                pvertex__++;
+                let ptex:vector_float4 = matrix_multiply(matTextureRot, vector_float4.init(xs - 0.5, ys - 0.5, 0.0, 1.0));
+                pvertex?.pointee.tx = (ptex.x / ptex.w) + 0.5;
+                pvertex?.pointee.ty = (ptex.y / ptex.w) + 0.5;
+                
+                pvertex?.successor();
+            }
+        }
+    }
+    
+    public func createMeshIndices()
+    {
+    // A complete object can be described as a degenerate strip,
+    // which contains zero-area triangles that the processing software
+    // or hardware will discard.
+    //
+    //     1 ---- 2 ---- 3 ---- 4 ---- 5
+    //     |    /^|    /^|    /^|    /^|
+    //     |  /   |  /   |  /   |  /   |
+    //     v/     v/     v/     v/     |
+    // deg 6 ---- 7 ---- 8 ---- 9 ----10 deg
+    //     |    /^|    /^|    /^|    /^|
+    //     |  /   |  /   |  /   |  /   |
+    //     v/     v/     v/     v/     |
+    //     11----12 ----13 ----14 ----15
+    //
+    // Indices:
+    // 1, 6, 2, 7, 3, 8, 4, 9, 5, 10, (10, 6), 6, 11, 7, 12, 8, 13, 9, 14, 10, 15
+    
+        let pind = indexBuffer?.contents().bindMemory(to: UInt32.self, capacity: 1)
+        
+        for y:UInt32 in 1..<(UInt32(numRows) - 1) {
+        // Degenerate index on non-first row
+            if (y > 0) {
+                pind?.pointee = (y * UInt32(numColumns))
+                pind?.advanced(by: 1)
+            }
+        
+            // Current strip
+            for x:UInt32 in 1..<UInt32(numColumns) {
+                pind?.pointee = (y * UInt32(numColumns) + x);
+                pind?.advanced(by: 1)
+                pind?.pointee = ((y + 1) * UInt32(numColumns) + x);
+                pind?.advanced(by: 1)
+            }
+        
+            // Degenerate index on non-last row
+            if (y < (numRows - 2)) {
+                pind?.pointee = ((y + 1) * UInt32(numColumns) + UInt32(numColumns - 1));
+                pind?.advanced(by:1)
             }
         }
     }
