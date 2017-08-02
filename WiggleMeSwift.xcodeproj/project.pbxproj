@@ -38,6 +38,9 @@
 		AC3AA6AF1F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
 		AC3AA6B01F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
 		AC3AA6B11F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
+		ACB8B79E1F31CB740077DD8F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3AA68F1F270CF100C41C3E /* Metal.framework */; };
+		ACB8B79F1F31CB740077DD8F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3AA68E1F270CF100C41C3E /* MetalKit.framework */; };
+		ACB8B7A01F31CB7B0077DD8F /* ModelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3AA68D1F270CE800C41C3E /* ModelIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB8B7A01F31CB7B0077DD8F /* ModelIO.framework in Frameworks */,
+				ACB8B79E1F31CB740077DD8F /* Metal.framework in Frameworks */,
+				ACB8B79F1F31CB740077DD8F /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
