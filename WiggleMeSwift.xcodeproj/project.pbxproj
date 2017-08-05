@@ -35,7 +35,6 @@
 		AC3AA6AB1F2774A400C41C3E /* WMRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */; };
 		AC3AA6AC1F2774A400C41C3E /* WMRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */; };
 		AC3AA6AD1F2774A400C41C3E /* WMRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AA1F2774A400C41C3E /* WMRenderer.swift */; };
-		AC3AA6AF1F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
 		AC3AA6B01F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
 		AC3AA6B11F277D6800C41C3E /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = AC3AA6AE1F277D6800C41C3E /* ReadMe.md */; };
 		ACB8B79E1F31CB740077DD8F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3AA68F1F270CF100C41C3E /* Metal.framework */; };
@@ -361,7 +360,6 @@
 				AC3AA65D1F270B8D00C41C3E /* ViewController.swift in Sources */,
 				AC3AA6951F270E5600C41C3E /* WMTypes.swift in Sources */,
 				AC3AA6AB1F2774A400C41C3E /* WMRenderer.swift in Sources */,
-				AC3AA6AF1F277D6800C41C3E /* ReadMe.md in Sources */,
 				AC3AA69A1F2723BE00C41C3E /* WMCamera.swift in Sources */,
 				AC3AA6911F270D1800C41C3E /* WMUtilities.swift in Sources */,
 				AC3AA65B1F270B8D00C41C3E /* AppDelegate.swift in Sources */,

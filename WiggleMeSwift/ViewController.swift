@@ -233,8 +233,55 @@ extension ViewController {
         let imagePickerController = UIImagePickerController.init()
         imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary;
         imagePickerController.delegate = self;
-//[self presentViewController:imagePickerController animated:YES completion:nil];
         self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        picker.dismiss(animated: true) {
+            
+        }
+        let asset:PHAsset = info[UIImagePickerControllerPHAsset] as! PHAsset
+        
+        let imageRequestOptions:PHImageRequestOptions = PHImageRequestOptions.init()
+        imageRequestOptions.isSynchronous = true;
+        imageRequestOptions.version = PHImageRequestOptionsVersion.original
+        imageRequestOptions.isNetworkAccessAllowed = true;
+        
+        PHImageManager.default().requestImageData(for: asset, options: imageRequestOptions) { (_ imageData:Data?,_ dataUTI:String?,_ orientation:UIImageOrientation,_ info:[AnyHashable:Any]?) in
+            let cgImageProperties = WMUtilities.imageProperties(from: imageData! as CFData)
+            let cgImageOrientationNumber:Any? = cgImageProperties![kCGImagePropertyOrientation as String]
+            let cgImageOrientation:Any?
+            if let cgImageOrientationNumber = cgImageOrientationNumber {
+                cgImageOrientation = CGImagePropertyOrientation.init(rawValue: cgImageOrientationNumber as! UInt32)
+            }
+            else {
+                cgImageOrientation = CGImagePropertyOrientation.up
+            }
+            
+            let imageOrientationRadAngle = WMUtilities.randAngleFromImageOrientation(cgImageOrientation as!CGImagePropertyOrientation)
+            
+            let depthData:AVDepthData? = WMUtilities.depthData(from: imageData! as CFData)!
+            if depthData == nil {
+                self.requestPhotoLibrary = true;
+                return
+            }
+            
+            
+            PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.default, options: imageRequestOptions, resultHandler: {[unowned self] (_ image:UIImage?,_ info:[AnyHashable:Any]?) in
+                let cameraCalibrationData = depthData?.cameraCalibrationData
+                
+                let intrinsicMatrix:matrix_float3x3 = (cameraCalibrationData?.intrinsicMatrix.transpose)!
+                let intrinsicMatrixReferenceDimensions = cameraCalibrationData?.intrinsicMatrixReferenceDimensions
+                
+                self.renderer?.setTextureOrientation(angleRad: imageOrientationRadAngle)
+                self.renderer?.setDepthMapOrientation(angleRad: -imageOrientationRadAngle)
+                self.renderer?.setDepthMap(depthMap: (depthData?.depthDataMap)!, intrinsicMatrix: intrinsicMatrix, intrinsicMatrixReferenceDimensions: intrinsicMatrixReferenceDimensions!)
+                self.renderer?.setTexture(image!)
+                self.requestPhotoLibrary = false
+            })
+            
+        }
     }
 }
 

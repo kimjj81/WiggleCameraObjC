@@ -70,17 +70,17 @@ class WMRenderer: NSObject, MTKViewDelegate {
         
         self.setupMetal()
         
-        guard device == nil else { throw MetalError.Unavailable }
+        if device == nil { throw MetalError.Unavailable }
         
-        rendererQueue?.sync  { [weak self] in
-            self?.setupView(view,device!)
-            self?.setupUniformBuffers()
+        rendererQueue?.sync  { [unowned self] in
+            self.setupView(view,device!)
+            self.setupUniformBuffers()
             
-            self?.loadMeshes()
-            self?.setuptPipeline()
-            self?.setupCamera()
+            self.loadMeshes()
+            self.setuptPipeline()
+            self.setupCamera()
             
-            self?.reshape()
+            self.reshape()
         }
         
     }
@@ -215,6 +215,7 @@ extension WMRenderer {
         self.view?.preferredFramesPerSecond = 60;
         
         self.view?.sampleCount = 4;
+        
         self.view?.depthStencilPixelFormat = MTLPixelFormat.depth32Float_stencil8
     }
     
@@ -243,7 +244,7 @@ extension WMRenderer {
         vertexDescriptor.attributes[0].offset = 0;
         vertexDescriptor.attributes[0].bufferIndex = 0;
         vertexDescriptor.attributes[1].format = MTLVertexFormat.float2
-        vertexDescriptor.attributes[1].offset = MemoryLayout<Float>.size * 4
+        vertexDescriptor.attributes[1].offset = MemoryLayout<Float>.size * 3 // TODO 수정되어야 할 부분. 원본 : offsetof(WMTextureVertext, tx)
         vertexDescriptor.attributes[1].bufferIndex = 0
         vertexDescriptor.layouts[0].stride = MemoryLayout<WMTextureVertex>.size;
         vertexDescriptor.layouts[0].stepRate = 1;
@@ -253,8 +254,8 @@ extension WMRenderer {
         let pipelineStateDescriptor:MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor.init()
         pipelineStateDescriptor.label = "TexturePipeline";
         pipelineStateDescriptor.sampleCount = (view?.sampleCount)!;
-        pipelineStateDescriptor.vertexFunction = library.makeFunction(name: "texturevertexshader")
-        pipelineStateDescriptor.fragmentFunction = library.makeFunction(name: "texturefragmentshader")
+        pipelineStateDescriptor.vertexFunction = library.makeFunction(name: "texture_vertex_shader")
+        pipelineStateDescriptor.fragmentFunction = library.makeFunction(name: "texture_fragment_shader")
         pipelineStateDescriptor.vertexDescriptor = vertexDescriptor;
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = (view?.colorPixelFormat)!;
         pipelineStateDescriptor.depthAttachmentPixelFormat = (view?.depthStencilPixelFormat)!;
