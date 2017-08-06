@@ -63,6 +63,8 @@ class WMRenderer: NSObject, MTKViewDelegate {
         focalMagnificationFactor = 0.90 // Avoid cropping the image in case the calibration data is off
         
         rendererQueue = DispatchQueue.init(label: "com.WiggleMe.RendererQueue")
+        print("renderer dispatch queue : \(rendererQueue)")
+        
         constantDataBufferIndex = 0;
         inflightSemaphore = DispatchSemaphore.init(value: WMRenderer.kMaxInflightBuffers)
         
@@ -105,7 +107,10 @@ extension WMRenderer {
         let fov:Float = WMUtilities.fieldOfView(fromViewPort: (self.view?.bounds.size)!, depthOrientation: meshModelOrientationRadAngle, with: cameraFocalLength, with: cameraReferenceFrameDimensions!, magnificatioFactor: focalMagnificationFactor)
         let aspect:Float = Float((self.view?.bounds.size.width)!) / Float((self.view?.bounds.size.height)!)
         projectionMatrix = matrix_from_perspective(fov, aspect, 0.1, 1000.0);
+        
+        print("reshape")
     }
+    
     public func update() {
         self.updateUniforms()
     }

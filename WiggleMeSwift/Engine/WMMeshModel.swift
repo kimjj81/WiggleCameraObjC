@@ -33,13 +33,14 @@ class WMMeshModel: NSObject {
         super.init()
         
         self.createVertexAndIndexBufferWithDevice(device)
+        self.createMeshIndices()
     }
     public func setTextureOrientation(_ radAngle:Float) {
         matTextureRot = matrix_from_rotation(radAngle, 0, 0, 1)
     }
     
-    public func setDepthMap(_ depthMap:CVPixelBuffer,_ instrinsicMatrix:matrix_float3x3, _ instrinsicMatrixReferenceDimensions:CGSize) {
-        
+    public func setDepthMap(_ depthMap:CVPixelBuffer,_ intrinsicMatrix:matrix_float3x3, _ intrinsicMatrixReferenceDimensions:CGSize) {
+        self.createMeshCoordinatesWithDepthMap(depthMap, intrinsicMatrix: intrinsicMatrix, intrinsicMatrixReferenceDimensions: intrinsicMatrixReferenceDimensions)
     }
 }
 
@@ -62,7 +63,7 @@ extension WMMeshModel {
         //    lerp(a, b, t) ((a) * ( 1 - (t) ) + (b) * (t))
         return (op1 * (1-t)) + op2*t
     }
-    @discardableResult
+    
     fileprivate func createMeshCoordinatesWithDepthMap(_ depthMapPixelBuffer:CVPixelBuffer, intrinsicMatrix:matrix_float3x3, intrinsicMatrixReferenceDimensions:CGSize)
     {
         let matOrig:matrix_float4x4 = matrix_from_scale(1,-1,1)

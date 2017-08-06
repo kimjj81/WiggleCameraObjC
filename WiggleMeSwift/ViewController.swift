@@ -19,7 +19,7 @@ import MetalKit
 class ViewController: UIViewController ,UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     var renderer:WMRenderer?;
     var motionManager:CMMotionManager?
-    var requestPhotoLibrary:Bool?
+    var requestPhotoLibrary:Bool = true
     var updateTimer:Timer?
     var useGyroscope:Bool?
     var effectRotation:Float?
@@ -27,9 +27,8 @@ class ViewController: UIViewController ,UINavigationControllerDelegate, UIImageP
     var adjustedMotionPitch:Float?
     var adjustedMotionRoll:Float?
     var matrixDeviceOrientation:matrix_float4x4?
-
+    
     override func viewDidLoad() {
-        requestPhotoLibrary = true;
         useGyroscope = false;
         effectRotation = 0.0;
         referenceMotionAttitude = nil;
@@ -46,6 +45,8 @@ class ViewController: UIViewController ,UINavigationControllerDelegate, UIImageP
             print("self.view : \(self.view)")
             print("Renderer를 못만들어 + \(error.localizedDescription)")
         }
+        print("renderer : \(renderer.debugDescription)")
+        
         // Gyroscope
         motionManager = CMMotionManager.init()
         motionManager?.deviceMotionUpdateInterval = 1.0 / 60.0;
@@ -72,7 +73,7 @@ class ViewController: UIViewController ,UINavigationControllerDelegate, UIImageP
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
-        if requestPhotoLibrary != nil {
+        if requestPhotoLibrary == true {
             self.selectPhotoFromLibrary()
         }
     }
@@ -119,7 +120,7 @@ class ViewController: UIViewController ,UINavigationControllerDelegate, UIImageP
     {
         let camera = renderer?.copyCamera()
         
-        if referenceMotionAttitude != nil {
+        if referenceMotionAttitude == nil {
             referenceMotionAttitude = deviceMotion.attitude.copy() as? CMAttitude
             adjustedMotionPitch = 0.0;
             adjustedMotionRoll = 0.0;
@@ -250,23 +251,25 @@ extension ViewController {
         
         PHImageManager.default().requestImageData(for: asset, options: imageRequestOptions) { (_ imageData:Data?,_ dataUTI:String?,_ orientation:UIImageOrientation,_ info:[AnyHashable:Any]?) in
             let cgImageProperties = WMUtilities.imageProperties(from: imageData! as CFData)
-            let cgImageOrientationNumber:Any? = cgImageProperties![kCGImagePropertyOrientation as String]
-            let cgImageOrientation:Any?
-            if let cgImageOrientationNumber = cgImageOrientationNumber {
-                cgImageOrientation = CGImagePropertyOrientation.init(rawValue: cgImageOrientationNumber as! UInt32)
+            
+            let cgImageOrientationNumber:UInt32? = cgImageProperties![kCGImagePropertyOrientation as String] as? UInt32
+            
+            let cgImageOrientation:CGImagePropertyOrientation
+            
+            if let imageOrientationNumber = cgImageOrientationNumber {
+                cgImageOrientation = CGImagePropertyOrientation.init(rawValue: UInt32(imageOrientationNumber))!
             }
             else {
                 cgImageOrientation = CGImagePropertyOrientation.up
             }
-            
-            let imageOrientationRadAngle = WMUtilities.randAngleFromImageOrientation(cgImageOrientation as!CGImagePropertyOrientation)
-            
-            let depthData:AVDepthData? = WMUtilities.depthData(from: imageData! as CFData)!
-            if depthData == nil {
+            let imageOrientationRadAngle = WMUtilities.randAngleFromImageOrientation(cgImageOrientation)
+            let depthData:AVDepthData?
+            guard WMUtilities.depthData(from: imageData! as CFData) != nil else {
                 self.requestPhotoLibrary = true;
                 return
             }
             
+            depthData = WMUtilities.depthData(from: imageData! as CFData)!
             
             PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.default, options: imageRequestOptions, resultHandler: {[unowned self] (_ image:UIImage?,_ info:[AnyHashable:Any]?) in
                 let cameraCalibrationData = depthData?.cameraCalibrationData
@@ -279,6 +282,7 @@ extension ViewController {
                 self.renderer?.setDepthMap(depthMap: (depthData?.depthDataMap)!, intrinsicMatrix: intrinsicMatrix, intrinsicMatrixReferenceDimensions: intrinsicMatrixReferenceDimensions!)
                 self.renderer?.setTexture(image!)
                 self.requestPhotoLibrary = false
+                
             })
             
         }

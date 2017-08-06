@@ -44,8 +44,7 @@ class WMCamera: NSObject, NSCopying {
     
     @objc(copyWithZone:) public func copy(with zone: NSZone? = nil) -> Any
     {
-        let cameraCopy:WMCamera = WMCamera.init(position,rotation)
-        return cameraCopy
+        return WMCamera.init(position,rotation)
     }
     
     public func lookAt() -> matrix_float4x4 {
